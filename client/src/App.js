@@ -18,8 +18,7 @@ class App extends Component {
     });
   }
 
-  handleClick(e) {
-    // this.saySomething("element clicked");
+  refresh(e) {
     this.fetchData()
   }
 
@@ -32,9 +31,8 @@ class App extends Component {
       <div className="App">
         <div className="Header">
           The current average price is <span className="Average-price">${ Number(this.state.average).toFixed(2) }</span>
-          <input className="Refresh-button" type="button" value="Refresh" onClick = {this.handleClick.bind(this)} />
+          <input className="Refresh-button" type="button" value="Refresh" onClick = {this.refresh.bind(this)} />
         </div>
-        
         <div className="Price-list">
           {this.state.prices.map( priceItem =>
             <div className="Price-row">${Number(priceItem.price).toFixed(2)} - {Moment(priceItem.timestamp).format("YYYY-MM-DD hh:mm:ss")}</div>
